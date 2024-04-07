@@ -1,13 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
+import { useAuth } from "../components/Auth";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const form = useForm();
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
-  console.log(errors);
+  const navigate = useNavigate();
+  const { login } = useAuth();
   const onSubmit = (values) => {
-    console.log(values);
+    if (values.username.length >= 3 && values.password.length >= 3) {
+      const data = { username: values.username, password: values.password };
+      login(data);
+      navigate("/");
+    }
   };
   return (
     <div className="login-container">
@@ -26,9 +32,11 @@ const Login = () => {
                 },
               })}
               // value={values.username}
-              className={errors.username ? 'error' : ''}
+              className={errors.username ? "error" : ""}
             />
-            {errors.username && <span className="error-text">{errors.username.message}</span>}
+            {errors.username && (
+              <span className="error-text">{errors.username.message}</span>
+            )}
           </div>
           <div className="form-group">
             <label htmlFor="password">Password:</label>
@@ -43,9 +51,11 @@ const Login = () => {
               })}
               // value={values.password}
               // onChange={handleChange}
-              className={errors.password ? 'error' : ''}
+              className={errors.password ? "error" : ""}
             />
-            {errors.password && <span className="error-text">{errors.password.message}</span>}
+            {errors.password && (
+              <span className="error-text">{errors.password.message}</span>
+            )}
           </div>
           <button type="submit" className="submit-button">
             Login

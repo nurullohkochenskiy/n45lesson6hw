@@ -2,3 +2,6 @@
 
 npm run json-server
 
+Formsiz joylarda mui ishlatdim
+Login page faqat react-hook-form orqali boldi 
+
