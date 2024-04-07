@@ -1,6 +1,12 @@
 import "./App.css";
-import { AuthProvider } from "./components/Auth";
 import { Route, Routes } from "react-router-dom";
+import Students from "./pages/Dashboard/Students";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Teachers from "./pages/Dashboard/Teachers";
+import { AuthProvider } from "./components/Auth";
+import Main from "./pages/Dashboard/Main";
+import RequireAuth from "./components/RequireAuth";
 const App = () => {
   return (
     <>

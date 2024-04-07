@@ -1,8 +1,9 @@
 import React from "react";
 import { useFormik } from "formik";
 
-const formik = useFormik({});
+
 const Login = () => {
+  const formik = useFormik({});
   return <div>Login</div>;
 };
 
